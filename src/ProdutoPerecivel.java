@@ -29,19 +29,8 @@ public class ProdutoPerecivel extends Produto{
         return valor;
     }
 
-    public boolean teste(){
-        boolean t = false;
-
-        if (ChronoUnit.DAYS.between(LocalDate.now(), dataValidade) <= PRAZO_DESCONTO) {
-            t = true;
-        }
-
-        return t;
-    }
-
     @Override
     public String toString() {
-        StringBuilder texto = new StringBuilder(toString());
         return super.toString();
     }
 
