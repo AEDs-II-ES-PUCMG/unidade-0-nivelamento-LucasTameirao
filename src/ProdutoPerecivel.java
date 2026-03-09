@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalUnit;
 
@@ -32,6 +33,15 @@ public class ProdutoPerecivel extends Produto{
     @Override
     public String toString() {
         return super.toString();
+    }
+
+    @Override
+    public String gerarDadosTexto() {
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String precoFormatado = String.format("%.2f", precoCusto).replace("," , ".");
+        String margemFormatado = String.format("%.2f", margemLucro).replace("," , ".");
+        String dataFormatada = formato.format(dataValidade);
+        return String.format("1;%s;%s;%s;%s", descricao, precoFormatado, margemFormatado, dataFormatada);
     }
 
 }

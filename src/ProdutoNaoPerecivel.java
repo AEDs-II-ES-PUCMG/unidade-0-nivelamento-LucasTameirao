@@ -18,4 +18,11 @@ public class ProdutoNaoPerecivel extends Produto {
     public String toString() {
         return super.toString();
     }
+
+    @Override
+    public String gerarDadosTexto() {
+        String precoFormatado = String.format("%.2f", precoCusto).replace("," , ".");
+        String margemFormatado = String.format("%.2f", margemLucro).replace("," , ".");
+        return String.format("1;%s;%s;%s", descricao, precoFormatado, margemFormatado);
+    }
 }
