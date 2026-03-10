@@ -143,8 +143,11 @@ public class Pedido {
 	}
 
 	public String gerarRecibo(){
-		
-		return "";
+		StringBuilder recibo = new StringBuilder("Recibo\n");
+		for(ItemDePedido i : itens){
+			recibo.append("Descrição: " + i.produto().descricao + " Quantidade x" + i.quantidadeDeProdutos() + "\n");
+		}
+		return recibo.toString();
 
 	}
 
